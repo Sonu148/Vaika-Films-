@@ -1,0 +1,111 @@
+/* Base font */
+body {
+    font-family: 'Sora', sans-serif;
+}
+
+/* Dark-mode tweaks for page background and text */
+html.dark body {
+    background-color: #111111;
+    color: #e2e2e2;
+}
+
+/* Shimmer text */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+.shimmer-text {
+    background: linear-gradient(to right, #4f46e5 20%, #c026d3 40%, #c026d3 60%, #4f46e5 80%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 8s linear infinite;
+}
+
+/* Section title/subtitle replacements for @apply */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 0.75rem; /* mb-3 */
+    font-size: 3rem; /* text-5xl */
+    line-height: 1.05;
+}
+@media (min-width: 768px) {
+    .section-title { font-size: 3.75rem; } /* md:text-6xl approximated */
+}
+.section-subtitle {
+    font-size: 1.25rem; /* text-xl */
+    max-width: 48rem; /* max-w-3xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 768px) {
+    .section-subtitle { font-size: 1.5rem; } /* md:text-2xl */
+}
+
+/* Glass card */
+html.dark .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+html.dark .glass-card:hover {
+    box-shadow: 0 0 30px rgba(192, 38, 211, 0.15);
+    border-color: rgba(192, 38, 211, 0.3);
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.glass-card:hover {
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.1);
+    border-color: rgba(79, 70, 229, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Portfolio item image hover */
+.portfolio-item img {
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Stat counter */
+.stat-counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Small utility: active filter button styling baseline */
+.portfolio-filter-btn {
+    cursor: pointer;
+}
+.portfolio-filter-btn.active {
+    /* color classes will be set by JS on load, but keep fallback */
+    background-color: #4f46e5;
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Make sure video fits */
+video {
+    display: block;
+}
+
+/* Minor responsive adjustments */
+@media (max-width: 640px) {
+    .section-title { font-size: 2rem; }
+}

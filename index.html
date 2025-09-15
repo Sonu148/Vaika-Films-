@@ -1,0 +1,210 @@
+ <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAIKA FILMS | Creative Storytelling Agency</title>
+
+    <!-- Preserve theme init in head to avoid FOUC -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FDFDFD] dark:bg-[#111111] text-gray-800 dark:text-[#e2e2e2] transition-colors duration-300 overflow-x-hidden">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-black tracking-wider">VAIKA FILMS</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition">Services</a>
+                    <a href="#work" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition">Work</a>
+                    <a href="#why-us" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition">Why Us</a>
+                    <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg transition">Contact</a>
+                    <button id="theme-toggle" type="button" class="ml-4 p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 dark:bg-black/80 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-2xl transition-transform duration-300 transform translate-x-full md:hidden">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#work" class="mobile-nav-link">Work</a>
+        <a href="#why-us" class="mobile-nav-link">Why Us</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden px-4 pt-20">
+            <div class="absolute inset-0 bg-grid-black/[0.03] dark:bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 leading-tight scroll-reveal">
+                    Where Ideas Become <br><span class="shimmer-text">Moving Pictures.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto mb-8 scroll-reveal" style="transition-delay: 200ms;">
+                    Vaika Films is a storyteller's studio crafting ad films and digital narratives that blend artistry with strategy. We make brands not just seen—but felt.
+                </p>
+                <a href="#work" class="bg-gray-900 text-white hover:bg-gray-700 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-bold px-8 py-3 rounded-lg transition-transform hover:scale-105 inline-block scroll-reveal" style="transition-delay: 400ms;">View Our Work</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-12 md:py-20 px-6">
+            <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <video autoplay loop muted playsinline class="rounded-2xl shadow-2xl w-full h-auto">
+                        <source src="Website_Video_Background_Generation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="scroll-reveal">
+                    <h2 class="section-title">We turn messages into memories.</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Founded in 2022, Vaika Films is a passionate crew of filmmakers, editors, designers, copywriters, and marketers united by one aim: make every frame matter. Our work spans brands, businesses, politics, and events—from lifestyle to social causes.
+                    </p>
+                    <div class="glass-card p-6">
+                        <h3 class="font-bold text-xl mb-3 text-gray-900 dark:text-white">Our Creative Alliances</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Mumbai, Delhi, Noida, Gurugram, Bhopal, Indore.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-12 md:py-20 px-6 bg-white dark:bg-black">
+            <div class="container mx-auto text-center">
+                <h2 class="section-title scroll-reveal">Our Creative Arsenal</h2>
+                <p class="section-subtitle text-gray-600 dark:text-gray-400 mb-16 scroll-reveal">A complete suite of services to bring your brand's vision to life, from concept to conversion.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Service items will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="py-12 md:py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="section-title scroll-reveal">Our Work</h2>
+                <p class="section-subtitle text-gray-600 dark:text-gray-400 mb-12 scroll-reveal">A collection of projects that showcase our passion for storytelling and design.</p>
+                <div class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12 scroll-reveal">
+                    <button class="portfolio-filter-btn active" data-filter="all">All</button>
+                    <button class="portfolio-filter-btn" data-filter="film">Ad Films</button>
+                    <button class="portfolio-filter-btn" data-filter="branding">Branding</button>
+                    <button class="portfolio-filter-btn" data-filter="design">Design</button>
+                    <button class="portfolio-filter-btn" data-filter="digital">Digital</button>
+                </div>
+                <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio items will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Reach Section -->
+        <section id="reach" class="py-12 md:py-20 px-6 bg-white dark:bg-black">
+            <div class="container mx-auto text-center">
+                <h2 class="section-title scroll-reveal">Creative That Connects</h2>
+                <p class="section-subtitle text-gray-600 dark:text-gray-400 mb-16 scroll-reveal">We don't just create content; we build communities and drive engagement. The numbers speak for themselves.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card p-8 scroll-reveal">
+                        <h3 class="text-5xl font-extrabold mb-2 stat-counter" data-target="24000000">0</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Total Views</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 100ms;">
+                        <h3 class="text-5xl font-extrabold mb-2 stat-counter" data-target="779046">0</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Accounts Reached</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 200ms;">
+                        <h3 class="text-5xl font-extrabold mb-2 stat-counter" data-target="61010">0</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Interactions</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 300ms;">
+                        <h3 class="text-5xl font-extrabold mb-2 stat-counter" data-target="35486">0</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Followers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="py-12 md:py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="section-title scroll-reveal">Why Partner With Vaika?</h2>
+                    <p class="section-subtitle text-gray-600 dark:text-gray-400 scroll-reveal">We're not just another agency. We're a creative partner invested in your success.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card p-8 scroll-reveal">
+                        <h3 class="text-xl font-bold mb-3">Innovative Storytelling</h3>
+                        <p class="text-gray-600 dark:text-gray-400">We merge creative direction with strategic planning to design campaigns that stand out and are impactful.</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 100ms;">
+                        <h3 class="text-xl font-bold mb-3">Brand-Centric Approach</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Every project begins with deep research into your brand's vision to deliver measurable business results.</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 200ms;">
+                        <h3 class="text-xl font-bold mb-3">Creative with Purpose</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Beyond aesthetics, we focus on outcomes—building content that enhances visibility, trust, and long-term growth.</p>
+                    </div>
+                    <div class="glass-card p-8 scroll-reveal" style="transition-delay: 300ms;">
+                        <h3 class="text-xl font-bold mb-3">Tailored Solutions</h3>
+                        <p class="text-gray-600 dark:text-gray-400">We customize every campaign to suit your industry and objectives for a unique and effective approach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 md:py-20 px-6 bg-white dark:bg-black">
+            <div class="container mx-auto text-center">
+                 <h2 class="section-title scroll-reveal">Let's create something memorable.</h2>
+                 <p class="section-subtitle text-gray-600 dark:text-gray-400 mb-12 scroll-reveal">Have a project in mind? We'd love to hear about it.</p>
+                 <a href="mailto:hello@vaikafilms.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-12 py-4 rounded-lg hover:scale-105 transition-transform inline-block scroll-reveal">
+                    Get In Touch
+                 </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 VAIKA FILMS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Local script -->
+    <script src="index.js"></script>
+</body>
+</html>
